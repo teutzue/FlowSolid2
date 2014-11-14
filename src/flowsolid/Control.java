@@ -1,17 +1,23 @@
 package flowsolid;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
-import java.util.Scanner;
 
 public class Control implements WordPairControlInterface {
-
-    public static ArrayList<WordPair> wordList = new ArrayList();
-
+    
+    
+    
+    FileHandler fh;
+    public static ArrayList<WordPair> wordList;
+    
+    public Control (){
+    
+        fh = new FileHandler();
+        wordList = new ArrayList();
+    
+    }
+    
+    
     /**
      * Pre: Post: A new word pair is added to the existing collection of word
      * pairs. This method does not save to file!
@@ -89,24 +95,10 @@ public class Control implements WordPairControlInterface {
      * returns false.
      */
     @Override
-    public boolean load(String filename) throws FileNotFoundException {
-        try {
-
-            File mini = new File(filename);
-            Scanner scan = new Scanner(mini);
-            scan.useDelimiter(",|\n");
-
-            while (scan.hasNext()) {// as long there is still a next line 
-
-                wordList.add(new WordPair(scan.next(), scan.next()));
-
-            }
-
-            return true;
-        } catch (Exception e) {
-            return false;
-        }
-
+    public boolean load(String filename) {
+        
+       return fh.load(filename, wordList);
+  
     }
 
     /**
@@ -115,22 +107,8 @@ public class Control implements WordPairControlInterface {
      */
     @Override
     public boolean save(String filename) {
-
-        try {
-
-            File mini = new File(filename);
-            FileWriter fWrite = new FileWriter(mini, true);
-            for (WordPair item : wordList) {
-
-                fWrite.append(item.question + "," + item.answer + "\n");
-
-            }
-            fWrite.close();// close acces to file 
-            return true;
-
-        } catch (IOException ex) {
-            return false;
-        }
+        
+        return fh.save(filename, wordList);
 
     }
 

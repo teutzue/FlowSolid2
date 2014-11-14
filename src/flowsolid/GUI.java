@@ -19,6 +19,7 @@ public class GUI extends javax.swing.JFrame {
     public GUI() {
         initComponents();
         control = new Control();
+        control.load("filename.txt");
 
     }
 
@@ -162,7 +163,7 @@ public class GUI extends javax.swing.JFrame {
          * Pre: At least one word pair must be present Post: Returns a question
          * randomly selected from the collection of word pairs.
          */
-        control.getRandomQuestion();
+        jTextQuestion.setText(control.getRandomQuestion());
     }//GEN-LAST:event_jButtonNextActionPerformed
 
     private void jButtonGuessActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuessActionPerformed
