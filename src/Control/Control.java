@@ -66,13 +66,13 @@ public class Control implements WordPairControlInterface {
             }
 
         }
-        if (guess.equalsIgnoreCase(answer)) {
-            return true;
-        } else {
-
-            return false;
-        }
-        // return (guess.equalsIgnoreCase(answer)
+//        if (guess.equalsIgnoreCase(answer)) {
+//            return true;
+//        } else {
+//
+//            return false;
+//        }
+         return guess.equalsIgnoreCase(answer);
     }
 
     /**
@@ -121,10 +121,4 @@ public class Control implements WordPairControlInterface {
     public void clear() {
         wordList.clear();
     }
-    
-//    public String DisplayAnswer(String question, String guess){
-//    
-//        return disp.ShowAnswer(question, guess);
-//    
-//    }
 }
