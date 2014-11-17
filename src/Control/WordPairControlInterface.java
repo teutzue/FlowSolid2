@@ -1,6 +1,4 @@
-package flowsolid;
-
-import java.io.FileNotFoundException;
+package Control;
 
 
 public interface WordPairControlInterface {

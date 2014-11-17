@@ -1,13 +1,13 @@
 
-package flowsolid;
+package Entity;
 
 /**
  *
  * @author CosticaTeodor
  */
 public class WordPair {
-    String question;
-    String answer;
+    public String question;
+    public String answer;
     
     public WordPair(String question, String answer){
     

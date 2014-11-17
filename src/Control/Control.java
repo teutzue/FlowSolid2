@@ -1,23 +1,25 @@
-package flowsolid;
+package Control;
 
+//import Entity.DisplayAnswer;
+import Entity.WordPair;
+import Entity.FileHandler;
 import java.util.ArrayList;
 import java.util.Random;
 
 public class Control implements WordPairControlInterface {
     
-    
-    
+    //DisplayAnswer disp;
     FileHandler fh;
     public static ArrayList<WordPair> wordList;
-    
-    public Control (){
-    
+
+    public Control() {
+
         fh = new FileHandler();
+        //disp = new DisplayAnswer();
         wordList = new ArrayList();
-    
+
     }
-    
-    
+
     /**
      * Pre: Post: A new word pair is added to the existing collection of word
      * pairs. This method does not save to file!
@@ -96,9 +98,9 @@ public class Control implements WordPairControlInterface {
      */
     @Override
     public boolean load(String filename) {
-        
-       return fh.load(filename, wordList);
-  
+
+        return fh.load(filename, wordList);
+
     }
 
     /**
@@ -107,7 +109,7 @@ public class Control implements WordPairControlInterface {
      */
     @Override
     public boolean save(String filename) {
-        
+
         return fh.save(filename, wordList);
 
     }
@@ -119,5 +121,10 @@ public class Control implements WordPairControlInterface {
     public void clear() {
         wordList.clear();
     }
-
+    
+//    public String DisplayAnswer(String question, String guess){
+//    
+//        return disp.ShowAnswer(question, guess);
+//    
+//    }
 }

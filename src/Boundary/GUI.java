@@ -1,4 +1,8 @@
-package flowsolid;
+package Boundary;
+
+import Control.Control;
+import static Control.Control.wordList;
+import Control.WordPairControlInterface;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -42,6 +46,7 @@ public class GUI extends javax.swing.JFrame {
         jButtonNew = new javax.swing.JButton();
         jButtonLookUp = new javax.swing.JButton();
         jLabelFeedback = new javax.swing.JLabel();
+        jTextFAnswer = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -91,6 +96,8 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
+        jTextFAnswer.setText("Answer");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -114,7 +121,9 @@ public class GUI extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jButtonNew, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(124, 124, 124))
+                                        .addGap(30, 30, 30)
+                                        .addComponent(jTextFAnswer, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(20, 20, 20))
                                     .addComponent(jTextAnswer, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -137,10 +146,15 @@ public class GUI extends javax.swing.JFrame {
                     .addComponent(jButtonGuess, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabelAnswer, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
                     .addComponent(jTextAnswer))
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonNew, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonLookUp, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButtonNew, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButtonLookUp, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFAnswer, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabelFeedback, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -164,6 +178,7 @@ public class GUI extends javax.swing.JFrame {
          * randomly selected from the collection of word pairs.
          */
         jTextQuestion.setText(control.getRandomQuestion());
+        jTextAnswer.setText("");
     }//GEN-LAST:event_jButtonNextActionPerformed
 
     private void jButtonGuessActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuessActionPerformed
@@ -171,7 +186,9 @@ public class GUI extends javax.swing.JFrame {
          * Pre: Post: Returns true if (question, quess) exists as a word pair in
          * the collection, otherwise false.
          */
-        control.checkGuess(null, null);
+        control.checkGuess(jTextQuestion.getText(), jTextAnswer.getText());
+        //jTextFAnswer.setText(control.);
+        //jTextFAnswer.setText(null);
 
     }//GEN-LAST:event_jButtonGuessActionPerformed
 
@@ -181,7 +198,14 @@ public class GUI extends javax.swing.JFrame {
          * Pre: Post: A new word pair is added to the existing collection of
          * word pairs. This method does not save to file!
          */
+        //control.clear();
+        //control.load("filename");
         control.add(jTextQuestion.getText(),jTextAnswer.getText());
+        control.save("filename.txt");
+        jTextQuestion.setText("");
+        jTextAnswer.setText("");
+        //control.clear();
+        
     }//GEN-LAST:event_jButtonNewActionPerformed
 
     private void jButtonLookUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLookUpActionPerformed
@@ -189,7 +213,8 @@ public class GUI extends javax.swing.JFrame {
          * Pre: Post: Returns the answer corresponding to the question if this
          * exists in the collection. Otherwise it returns null.
          */
-        control.lookup(null);
+        //control.lookup();
+        jTextAnswer.setText(control.lookup(jTextQuestion.getText()));
 
     }//GEN-LAST:event_jButtonLookUpActionPerformed
 
@@ -238,6 +263,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelHeader;
     private javax.swing.JLabel jLabelQuestion;
     private javax.swing.JTextField jTextAnswer;
+    private javax.swing.JTextField jTextFAnswer;
     private javax.swing.JTextField jTextQuestion;
     // End of variables declaration//GEN-END:variables
 }

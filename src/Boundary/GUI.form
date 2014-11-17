@@ -43,7 +43,9 @@
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Group type="102" attributes="0">
                                       <Component id="jButtonNew" min="-2" pref="73" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="124" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                                      <Component id="jTextFAnswer" min="-2" pref="74" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="jTextAnswer" min="-2" pref="197" max="-2" attributes="0"/>
                               </Group>
@@ -77,10 +79,18 @@
                   <Component id="jLabelAnswer" pref="30" max="32767" attributes="0"/>
                   <Component id="jTextAnswer" alignment="0" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jButtonNew" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
-                  <Component id="jButtonLookUp" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jButtonNew" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                          <Component id="jButtonLookUp" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jTextFAnswer" min="-2" pref="31" max="-2" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
               <Component id="jLabelFeedback" min="-2" pref="40" max="-2" attributes="0"/>
@@ -148,6 +158,11 @@
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelFeedback">
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTextFAnswer">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Answer"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

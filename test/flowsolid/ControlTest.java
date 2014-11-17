@@ -5,6 +5,7 @@
  */
 package flowsolid;
 
+import Control.Control;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

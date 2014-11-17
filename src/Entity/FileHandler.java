@@ -1,7 +1,6 @@
 
-package flowsolid;
+package Entity;
 
-import static flowsolid.Control.wordList;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;

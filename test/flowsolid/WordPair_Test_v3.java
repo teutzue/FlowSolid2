@@ -1,4 +1,5 @@
-//package flowsolid;
+//package JUnitTest;
+//
 //
 ///**
 // * @author lam
@@ -17,13 +18,11 @@
 // */
 //
 //
-//import Entity.Engine;
 //import Interface.WordPairControlInterface;
 //import java.util.UUID;
 //import org.junit.After;
 //import org.junit.Before;
 //import org.junit.Test;
-//import static org.junit.Assert.*;
 //
 ///**
 // *
@@ -47,7 +46,7 @@
 //    {
 //        // Value to use a Windows or Unix like filesystem.
 //        // Set to false if you use a Mac or linux variant.
-//        boolean WindowsOS = true
+//        boolean WindowsOS = false;
 //        
 //        String path = System.getProperty("user.home");
 //        if(WindowOS){
