@@ -2,4 +2,4 @@ car,bil
 hello,hej
 mand,man
 kone,wife
-teo,alex
+teo,alexi

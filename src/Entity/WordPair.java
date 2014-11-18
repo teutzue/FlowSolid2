@@ -8,6 +8,7 @@ package Entity;
 public class WordPair {
     public String question;
     public String answer;
+    //public int priority;
     
     public WordPair(String question, String answer){
     

@@ -46,8 +46,8 @@ public class Control implements WordPairControlInterface {
     @Override
     public String getRandomQuestion() {
 
-        Random r = new Random();
-        int number = r.nextInt(wordList.size());
+        //Random r = new Random();
+        int number = new Random().nextInt(wordList.size());
         return wordList.get(number).getQuestion();
     }
 
@@ -66,13 +66,15 @@ public class Control implements WordPairControlInterface {
             }
 
         }
-//        if (guess.equalsIgnoreCase(answer)) {
-//            return true;
-//        } else {
-//
-//            return false;
-//        }
-         return guess.equalsIgnoreCase(answer);
+        if (guess.equalsIgnoreCase(answer)) {
+            
+            return true;
+            
+        } else {
+
+            return false;
+        }
+         //return guess.equalsIgnoreCase(answer);
     }
 
     /**
