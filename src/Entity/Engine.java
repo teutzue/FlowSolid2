@@ -5,7 +5,8 @@ import java.util.Random;
 
 /**
  *
- * @author CosticaTeodor
+ * @author Costica Teodor Mihail && Aleksandar Terziev
+ * 
  */
 public class Engine {
 

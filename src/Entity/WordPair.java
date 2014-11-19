@@ -3,7 +3,7 @@ package Entity;
 
 /**
  *
- * @author CosticaTeodor
+ * @author Costica Teodor Mihail && Aleksandar Terziev
  */
 public class WordPair {
     

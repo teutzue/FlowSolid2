@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author CosticaTeodor
+ * @author Costica Teodor Mihail && Aleksandar Terziev
  */
 public class FileHandler {
     

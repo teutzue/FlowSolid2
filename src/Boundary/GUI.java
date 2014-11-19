@@ -10,7 +10,7 @@ import Control.WordPairControlInterface;
  */
 /**
  *
- * @author sasho
+ * @author Costica Teodor Mihail && Aleksandar Terziev
  */
 public class GUI extends javax.swing.JFrame {
 
