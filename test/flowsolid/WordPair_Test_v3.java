@@ -184,9 +184,12 @@ public class WordPair_Test_v3
         boolean houseFound = false;
         boolean tabelFound = false;
 
+        
+        
         for (int i = 0; i < testTries; i++)
         {
             String question = wordPairDemo.getRandomQuestion();
+            
             if (question.equals("hest"))
             {
                 horseFound = true;

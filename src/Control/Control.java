@@ -1,24 +1,16 @@
 package Control;
 
-import Entity.WordPair;
-import Entity.FileHandler;
 import Entity.Engine;
-import java.util.ArrayList;
 
 public class Control implements WordPairControlInterface {
 
     Engine coreEngine;
-    FileHandler fileHandler;
-    public static ArrayList<WordPair> wordList;
     
 
     public Control() {
 
         coreEngine = new Engine();
-        fileHandler = new FileHandler();
-        wordList = new ArrayList();
-       
-
+    
     }
 
     /**
@@ -27,7 +19,8 @@ public class Control implements WordPairControlInterface {
      */
     @Override
     public void add(String question, String answer) {
-        wordList.add(new WordPair(question, answer));
+        coreEngine.add(question, answer);
+        coreEngine.probability.add(5);
     }
 
     /**
@@ -36,7 +29,7 @@ public class Control implements WordPairControlInterface {
      */
     @Override
     public int size() {
-        return wordList.size();
+        return coreEngine.size();
     }
 
     /**
@@ -76,7 +69,7 @@ public class Control implements WordPairControlInterface {
     @Override
     public boolean load(String filename) {
 
-        return fileHandler.load(filename);
+        return coreEngine.load(filename);
 
     }
 
@@ -87,7 +80,7 @@ public class Control implements WordPairControlInterface {
     @Override
     public boolean save(String filename) {
 
-        return fileHandler.save(filename);
+        return coreEngine.save(filename);
 
     }
 
@@ -96,6 +89,6 @@ public class Control implements WordPairControlInterface {
      */
     @Override
     public void clear() {
-        wordList.clear();
+        coreEngine.clear();
     }
 }

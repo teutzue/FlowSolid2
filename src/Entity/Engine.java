@@ -1,6 +1,5 @@
 package Entity;
 
-import static Control.Control.wordList;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -10,7 +9,18 @@ import java.util.Random;
  */
 public class Engine {
 
-    public static ArrayList<Integer> probability = new ArrayList<>();
+    FileHandler fileHandler;
+    public ArrayList<Integer> probability;
+    ArrayList<WordPair> wordList;
+
+    public Engine() {
+
+        fileHandler = new FileHandler();
+        probability = new ArrayList<>();
+        wordList = new ArrayList();
+        load("filename");
+        
+    }
 
     public boolean checkGuess(String question, String guess) {
 
@@ -54,9 +64,9 @@ public class Engine {
     public String getRandomQuestion() {
 
         int number = new Random().nextInt(wordList.size());
-        
+
         int num = new Random().nextInt(10) + 1;
-        
+
         System.out.println(num);
         System.out.println(probability);
         System.out.println("============");
@@ -69,6 +79,34 @@ public class Engine {
             return wordList.get(number).getQuestion();
 
         }
+
+    }
+
+    public int size() {
+
+        return wordList.size();
+
+    }
+
+    public void add(String question, String answer) {
+
+        wordList.add(new WordPair(question, answer));
+    }
+
+    public void clear() {
+
+        wordList.clear();
+    }
+
+    public boolean load(String filename) {
+
+        return fileHandler.load(filename, wordList, probability);
+
+    }
+
+    public boolean save(String filename) {
+
+        return fileHandler.save(filename, wordList, probability);
 
     }
 

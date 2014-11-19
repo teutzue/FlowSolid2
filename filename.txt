@@ -1,5 +1,5 @@
-bil,car
+car,bil
 hello,hej
-mand,man
-kone,wife
-
+man,mand
+wife,kone
+girl,pige

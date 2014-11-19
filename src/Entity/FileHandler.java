@@ -1,11 +1,10 @@
 
 package Entity;
 
-import static Control.Control.wordList;
-import static Entity.Engine.probability;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -16,7 +15,7 @@ public class FileHandler {
     
     
     
-    public boolean load(String filename) {
+    public boolean load(String filename, ArrayList<WordPair>  incomingArray , ArrayList<Integer> probability   ) {
         try {
 
             File mini = new File(filename);
@@ -25,7 +24,7 @@ public class FileHandler {
 
             while (scan.hasNext()) {// as long there is still a next line 
 
-                wordList.add(new WordPair(scan.next(), scan.next()));
+                incomingArray.add(new WordPair(scan.next(), scan.next()));
                 probability.add(5);
                 
 
@@ -38,13 +37,13 @@ public class FileHandler {
 
     }
     
-     public boolean save(String filename) {
+     public boolean save(String filename,ArrayList<WordPair>  incomingArray, ArrayList<Integer> probability) {
 
         try {
 
             File mini = new File(filename);
             FileWriter fWrite = new FileWriter(mini, true);
-            for (WordPair item : wordList) {
+            for (WordPair item : incomingArray) {
 
                 fWrite.append(item.question + "," + item.answer + "\n");
 
