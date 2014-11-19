@@ -1,5 +1,5 @@
-car,bil
+bil,car
 hello,hej
 mand,man
 kone,wife
-teo,alexi
+

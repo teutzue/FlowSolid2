@@ -1,22 +1,23 @@
 package Control;
 
-//import Entity.DisplayAnswer;
 import Entity.WordPair;
 import Entity.FileHandler;
+import Entity.Engine;
 import java.util.ArrayList;
-import java.util.Random;
 
 public class Control implements WordPairControlInterface {
-    
-    //DisplayAnswer disp;
-    FileHandler fh;
+
+    Engine coreEngine;
+    FileHandler fileHandler;
     public static ArrayList<WordPair> wordList;
+    
 
     public Control() {
 
-        fh = new FileHandler();
-        //disp = new DisplayAnswer();
+        coreEngine = new Engine();
+        fileHandler = new FileHandler();
         wordList = new ArrayList();
+       
 
     }
 
@@ -35,7 +36,6 @@ public class Control implements WordPairControlInterface {
      */
     @Override
     public int size() {
-
         return wordList.size();
     }
 
@@ -45,10 +45,7 @@ public class Control implements WordPairControlInterface {
      */
     @Override
     public String getRandomQuestion() {
-
-        //Random r = new Random();
-        int number = new Random().nextInt(wordList.size());
-        return wordList.get(number).getQuestion();
+        return coreEngine.getRandomQuestion();
     }
 
     /**
@@ -59,22 +56,7 @@ public class Control implements WordPairControlInterface {
      */
     @Override
     public boolean checkGuess(String question, String guess) {
-        String answer = null;
-        for (WordPair item : wordList) {
-            if (item.question.equalsIgnoreCase(question)) {
-                answer = item.answer;
-            }
-
-        }
-        if (guess.equalsIgnoreCase(answer)) {
-            
-            return true;
-            
-        } else {
-
-            return false;
-        }
-         //return guess.equalsIgnoreCase(answer);
+        return coreEngine.checkGuess(question, guess);
     }
 
     /**
@@ -83,14 +65,7 @@ public class Control implements WordPairControlInterface {
      */
     @Override
     public String lookup(String question) {
-
-        for (WordPair item : wordList) {
-            if (item.question.equalsIgnoreCase(question)) {
-                return item.answer;
-            }
-
-        }
-        return null;
+        return coreEngine.lookUp(question);
     }
 
     /**
@@ -101,7 +76,7 @@ public class Control implements WordPairControlInterface {
     @Override
     public boolean load(String filename) {
 
-        return fh.load(filename, wordList);
+        return fileHandler.load(filename);
 
     }
 
@@ -112,7 +87,7 @@ public class Control implements WordPairControlInterface {
     @Override
     public boolean save(String filename) {
 
-        return fh.save(filename, wordList);
+        return fileHandler.save(filename);
 
     }
 
