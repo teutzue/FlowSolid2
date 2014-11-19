@@ -54,12 +54,13 @@ public class Engine {
     public String getRandomQuestion() {
 
         int number = new Random().nextInt(wordList.size());
-        //probability.get(number);
+        
         int num = new Random().nextInt(10) + 1;
+        
         System.out.println(num);
         System.out.println(probability);
-        System.out.println("======");
-        if (num > probability.get(number)) {
+        System.out.println("============");
+        if (num >= probability.get(number)) {
 
             return getRandomQuestion();
 
