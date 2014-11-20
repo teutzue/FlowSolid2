@@ -3,3 +3,4 @@ hello,hej
 man,mand
 wife,kone
 girl,pige
+pelo,king
